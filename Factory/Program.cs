@@ -4,22 +4,33 @@ using MySql.Data.MySqlClient;
 using System.Data;
 
 ConnectionFactory factory = new ConnectionFactory();
-IDbConnection connection = factory.GetConnection();
 
-connection.Open();
-
-MySqlCommand command = new()
+using (IDbConnection connection = factory.GetConnection())
 {
-    Connection = (MySqlConnection)connection,
-    CommandText = "Select name from product",
-};
+    using (MySqlCommand command = new())
+    {
+        command.CommandText = "Select name from product";
+        command.Connection = (MySqlConnection)connection;
 
-MySqlDataReader reader = command.ExecuteReader();
+        connection.Open();
 
-while (reader.Read())
-{
-    Console.WriteLine(reader.GetString(0));
+        using (MySqlDataReader reader = command.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                Console.WriteLine(reader["name"]);
+            }            
+        }
+    }    
 }
 
-connection.Close();
+
+
+
+
+
+
+
+
+
 
