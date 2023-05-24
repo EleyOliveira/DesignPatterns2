@@ -12,5 +12,10 @@
             { "la", new La() },
             { "si", new Si() }
         };
+
+        public INota GetNota(string nota)
+        {
+            return notas[nota];
+        }
     }
 }
