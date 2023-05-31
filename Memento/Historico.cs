@@ -2,13 +2,16 @@
 {
     internal class Historico
     {
-        private IDictionary<DateTime, Estado> estados = new Dictionary<DateTime, Estado>();
+        private IDictionary<string, Estado> estados = new Dictionary<string, Estado>();
 
-        public Estado GetEstado(DateTime data)
+        public Estado GetEstado(string data)
         {
             return estados[data];
         }
 
-        public void Adiciona()
+        public void Adiciona(string data, Estado estado)
+        {
+            estados.Add(data, estado);
+        }
     }
 }
