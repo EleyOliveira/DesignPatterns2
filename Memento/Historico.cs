@@ -13,5 +13,10 @@
         {
             estados.Add(data, estado);
         }
+
+        public IDictionary<string, Estado> GetAll() 
+        {
+            return estados;
+        }
     }
 }
