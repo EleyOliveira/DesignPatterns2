@@ -1,13 +1,19 @@
 ﻿namespace Interpreter
 {
     internal class Multiplicacao : IExpressao
-    {
-        //TODO: Terminar implementação dessa classe.
+    {        
         private IExpressao esquerda;
         private IExpressao direita;
+
+        public Multiplicacao(IExpressao esquerda, IExpressao direita)
+        {
+            this.esquerda = esquerda;
+            this.direita = direita;
+        }
+
         public int Avalia()
         {
-            throw new NotImplementedException();
+            return esquerda.Avalia() * direita.Avalia();
         }
     }
 }

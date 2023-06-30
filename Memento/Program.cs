@@ -21,8 +21,7 @@ historico.Adiciona("23/05/2023", contrato.SalvaEstado());
 //Estado estado = historico.GetEstado("23/05/2023");
 
 foreach (var estado in historico.GetAll())
-{
-    //TODO: Pegar os dados do contrato do dictionary
+{    
     Console.WriteLine($"Cliente: {estado.Value.contrato.Cliente}\nSituação: {estado.Value.contrato.Tipo}\nData: {estado.Value.contrato.Data}");
 }
 
